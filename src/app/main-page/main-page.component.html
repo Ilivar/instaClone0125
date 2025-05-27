@@ -1,6 +1,11 @@
-
 @for (post of posts; track $index){
-    <p>{{post.name}}</p>
-    <img src="{{post.image}}" alt="">
-    <p>Likes: {{post.likes}}</p>
-}
+<p>{{ post.name }}</p>
+<img src="{{ post.image }}" alt="" />
+<p>Likes: {{ post.likes }}</p>
+@if(post.isLiked){
+<img class="heart" (click)="changeHeart(post)" src="../../assets/img/heart-red.png" alt="" />
+}@else {
+<img class="heart" (click)="changeHeart(post)" src="../../assets/img/heart-black.png" alt="" />
+} }
+
+<a routerLink="contacts">Nase nenne</a>

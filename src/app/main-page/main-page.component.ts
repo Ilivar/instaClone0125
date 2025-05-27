@@ -1,4 +1,5 @@
 
+
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -7,6 +8,7 @@ interface Posts {
   name: string;
   image: string;
   likes: number;
+  isLiked: boolean;
 }
 
 @Component({
@@ -22,11 +24,24 @@ export class MainPageComponent {
       name: 'BananaJoe',
       image: '../assets/img/banana.jpg',
       likes: 22,
+      isLiked: true
     },
     {
       name:'BerndDasBrot',
       image: '../assets/img/currant.jpg',
-      likes: 42
+      likes: 42,
+      isLiked:false
     }
   ];
+
+  changeHeart(post: Posts){
+    if(post.isLiked){
+      post.isLiked = false;
+      post.likes = post.likes - 1;
+    }else{
+       post.isLiked = true;
+      post.likes = post.likes + 1;
+    }
+  }
+
 }
