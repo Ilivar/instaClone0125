@@ -2,9 +2,10 @@
 
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SinglePostComponent } from './single-post/single-post.component';
 
 
-interface Posts {
+export interface Posts {
   name: string;
   image: string;
   likes: number;
@@ -14,7 +15,7 @@ interface Posts {
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, SinglePostComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
@@ -34,14 +35,6 @@ export class MainPageComponent {
     }
   ];
 
-  changeHeart(post: Posts){
-    if(post.isLiked){
-      post.isLiked = false;
-      post.likes = post.likes - 1;
-    }else{
-       post.isLiked = true;
-      post.likes = post.likes + 1;
-    }
-  }
+  
 
 }

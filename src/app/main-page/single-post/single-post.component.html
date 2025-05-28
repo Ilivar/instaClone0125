@@ -1,0 +1,9 @@
+
+<p>{{ singlepost.name }}</p>
+<img src="{{ singlepost.image }}" alt="" />
+<p>Likes: {{ singlepost.likes }}</p>
+@if(singlepost.isLiked){
+<img class="heart" (click)="changeHeart(singlepost)" src="../../assets/img/heart-red.png" alt="" />
+}@else {
+<img class="heart" (click)="changeHeart(singlepost)" src="../../assets/img/heart-black.png" alt="" />
+}
