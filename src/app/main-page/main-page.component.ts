@@ -10,6 +10,7 @@ export interface Posts {
   image: string;
   likes: number;
   isLiked: boolean;
+  comments: Array<string>;
 }
 
 @Component({
@@ -25,16 +26,21 @@ export class MainPageComponent {
       name: 'BananaJoe',
       image: '../assets/img/banana.jpg',
       likes: 22,
-      isLiked: true
+      isLiked: true,
+      comments: ['supergeil']
     },
     {
       name:'BerndDasBrot',
       image: '../assets/img/currant.jpg',
       likes: 42,
-      isLiked:false
+      isLiked:false,
+      comments: ['supergeilDieZweite']
     }
   ];
 
-  
+  handleNewPost(event: { post: Posts, comment: string }) {
+    const post = event.post;
+    post.comments.push(event.comment);
+  }
 
 }
