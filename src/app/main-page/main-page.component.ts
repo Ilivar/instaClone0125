@@ -27,20 +27,19 @@ export class MainPageComponent {
       image: '../assets/img/banana.jpg',
       likes: 22,
       isLiked: true,
-      comments: ['supergeil']
+      comments: ['Ich habe mein Lerntagebuch nicht vergessen!', 'Ich lass mir keinen Code generieren']
     },
     {
       name:'BerndDasBrot',
       image: '../assets/img/currant.jpg',
       likes: 42,
       isLiked:false,
-      comments: ['supergeilDieZweite']
+      comments: ['Coden macht oft Kopfweh!', 'aber auch verdammt viel Spaß! :) ']
     }
   ];
 
-  handleNewPost(event: { post: Posts, comment: string }) {
-    const post = event.post;
-    post.comments.push(event.comment);
+  addComment(newComment: string, i: number) {
+    this.posts[i].comments.push(newComment);
   }
 
 }

@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SinglePostComponent {
   @Input() singlepost!: Posts;
-  @Output() newpost = new EventEmitter<{ post: Posts; comment: string }>();
+  @Output() newpost = new EventEmitter<string>();
 
   newComment: string = '';
 
@@ -26,16 +26,8 @@ export class SinglePostComponent {
     }
   }
 
-  addPost() {
-    if (this.newComment.trim()) {
-      // Nur initialisieren, wenn undefined oder kein Array
-      if (!Array.isArray(this.singlepost.comments)) {
-        this.singlepost.comments = [];
-      }
-
-      console.log(this.newComment);
-      this.singlepost.comments.push(this.newComment.trim());
-      this.newComment = '';
-    }
-  }
+  addNewComment() {
+  this.newpost.emit(this.newComment);
+  this.newComment = "";
+}
 }

@@ -1,5 +1,5 @@
 @for (post of posts; track $index){
- <app-single-post [singlepost]="post"></app-single-post>   
+ <app-single-post [singlepost]="post" (newpost)="addComment($event, $index)"></app-single-post>   
  }
 
 <a routerLink="contacts">Nase nenne</a>

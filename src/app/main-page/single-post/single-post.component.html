@@ -2,8 +2,16 @@
 <p>{{ singlepost.name }}</p>
 <img src="{{ singlepost.image }}" alt="" />
 <p>Likes: {{ singlepost.likes }}</p>
+
+@for (comment of singlepost.comments; track $index) {
+<p>Kommentar: {{$index + 1}} {{ comment }}</p>
+}
+
 @if(singlepost.isLiked){
 <img class="heart" (click)="changeHeart(singlepost)" src="../../assets/img/heart-red.png" alt="" />
 }@else {
 <img class="heart" (click)="changeHeart(singlepost)" src="../../assets/img/heart-black.png" alt="" />
 }
+
+<label>Neuer Kommentar: <input [(ngModel)]="newComment"></label>
+<button (click)="addNewComment()">Hinzufügen</button>
